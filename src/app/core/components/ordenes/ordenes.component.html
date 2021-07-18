@@ -1,0 +1,24 @@
+<div>
+  <h1>Listado de ordenes <i class="fas fa-cart-plus"></i></h1>
+
+  <div class="container">
+    <nz-table class="table-data" #basicTable [nzData]="listOfData">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cliente</th>
+          <th>Cantidad</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.producto }}</td>
+          <td>{{ data.cliente }}</td>
+          <td>{{ data.cantidad }}</td>
+          <td>{{ data.fecha }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

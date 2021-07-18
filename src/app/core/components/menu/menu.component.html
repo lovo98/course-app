@@ -1,0 +1,36 @@
+<div class="body" id="bodyId">
+  <div class="l-navbar" id="navbar">
+    <nav class="nav">
+      <div>
+        <div class="nav__brand" (click)="this.showMenu('nav-toggle', 'navbar', 'bodyId')">
+          <span class="nav__toggle">
+            <i class="fas fa-bars" id="nav-toggle"></i>
+          </span>
+          <span class="nav__logo">System</span>
+        </div>
+        <div class="nav__list">
+          <span [routerLink]="['home']" routerLinkActive="active" class="nav__link">
+            <span class="nav__icon"><i class="fas fa-home"></i>
+            </span> <span class="nav__name">Home</span>
+          </span>
+
+          <span [routerLink]="['clientes']" routerLinkActive="active" class="nav__link">
+            <span class="nav__icon"><i class="fas fa-users"></i>
+            </span> <span class="nav__name">Clientes</span>
+          </span>
+
+          <span [routerLink]="['ordenes']" routerLinkActive="active" class="nav__link">
+            <span class="nav__icon"><i class="fas fa-cart-plus"></i></span>
+            <span class="nav__name">Ordenes</span>
+          </span>
+
+          <span [routerLink]="['productos']" routerLinkActive="active" class="nav__link">
+            <span class="nav__icon"><i class="fas fa-gifts"></i>
+            </span> <span class="nav__name">Productos</span>
+          </span>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,22 @@
+<div>
+  <h1>Listado de productos <i class="fas fa-gifts"></i></h1>
+
+  <div class="container">
+    <nz-table class="table-data" #basicTable [nzData]="listOfData">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.nombre }}</td>
+          <td>{{ data.descripcionP }}</td>
+          <td>{{ data.precio }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

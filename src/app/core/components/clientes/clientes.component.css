@@ -1,0 +1,12 @@
+h1 {
+  text-align: center;
+}
+
+.container {
+  margin: 0 2rem 0 0;
+  background-color: #ffffff;
+}
+
+.table-data {
+  padding: 10px;
+}
