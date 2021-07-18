@@ -2,12 +2,12 @@
   <h1>Listado de clientes <i class="fas fa-users"></i></h1>
 
   <div class="container">
-    <nz-table class="table-data" #basicTable [nzData]="listOfData">
+    <nz-table class="table-data" #basicTable [nzData]="listOfData" [nzScroll]="{ y: '240px' }">
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Teléfono</th>
-          <th>NIT</th>
+          <th nzWidth="150px">Nombre</th>
+          <th nzWidth="150px">Teléfono</th>
+          <th nzWidth="150px">NIT</th>
         </tr>
       </thead>
       <tbody>

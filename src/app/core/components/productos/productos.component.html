@@ -2,12 +2,12 @@
   <h1>Listado de productos <i class="fas fa-gifts"></i></h1>
 
   <div class="container">
-    <nz-table class="table-data" #basicTable [nzData]="listOfData">
+    <nz-table class="table-data" #basicTable [nzData]="listOfData" [nzScroll]="{ y: '240px' }">
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Descripción</th>
-          <th>Precio</th>
+          <th nzWidth="150px">Nombre</th>
+          <th nzWidth="150px">Descripción</th>
+          <th nzWidth="150px">Precio</th>
         </tr>
       </thead>
       <tbody>
