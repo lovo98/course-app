@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "email": "kl@mail.com",
+      "password": "$2a$10$eyK3gfqVamCP8Wa0ybp8veChXxKYSg53s4cTauhKQMeDROVk62IIe",
+      "firstname": "Olivier",
+      "lastname": "Monge",
+      "age": 32,
+      "id": 2
+    },
+    {
+      "email": "Lovo1998.y@gmail.com",
+      "password": "$2a$10$hIK2rfSBGwzNh4UxkASK4Oh7FPSL3O/A0LfEeo6D2hBbfmutzZ5su",
+      "firstname": "Kevin",
+      "lastname": "Lovos",
+      "age": "22",
+      "id": 3
+    },
+    {
+      "email": "Lovo1998.y@gmail.com5",
+      "password": "$2a$10$Mg0TNE9tofrWR6NjtiqLgeK6jgXtD6WFayto8U403HWZyJ0gfX/dO",
+      "firstname": "Kevin",
+      "lastname": "Lovos Romero",
+      "age": "24",
+      "id": 4
+    }
+  ]
+}

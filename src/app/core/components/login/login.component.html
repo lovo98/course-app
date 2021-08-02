@@ -1,0 +1,39 @@
+<div *ngIf="!log else logged">
+  <div class="containerLog">
+    <div class="card">
+      <div class="img">
+        <img src="../../../assets/img/login.svg" alt="Background" />
+      </div>
+      <div class="login-container">
+        <form class="formLog" [formGroup]="loginForm" (ngSubmit)="login()">
+          <img class="avatar" src="../../../assets/img/avatar.svg" alt="avatar" />
+          <h2>Bienvenido</h2> <br>
+          <div class="input-div one focus">
+            <div class="i">
+              <i class="fas fa-at"></i>
+            </div>
+            <div>
+              <h5>Correo:</h5>
+              <input formControlName="email" name="email" id="email" class="inputLog" type="text" />
+            </div>
+          </div>
+
+          <div class="input-div two focus">
+            <div class="i">
+              <i class="fas fa-user-lock"></i>
+            </div>
+            <div>
+              <h5>Contraseña:</h5>
+              <input formControlName="password" name="password" id="password" class="inputLog" type="password" />
+            </div>
+          </div>
+            <input class="btnLog" type="submit" value="Ingresar" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #logged>
+  <app-menu></app-menu>
+</ng-template>

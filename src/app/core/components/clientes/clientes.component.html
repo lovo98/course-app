@@ -1,22 +1,126 @@
 <div>
   <h1>Listado de clientes <i class="fas fa-users"></i></h1>
-
+  <div style="margin-bottom: 10px;">
+    <app-nuevo-cliente (listaNew)="listado()"></app-nuevo-cliente>
+  </div>
   <div class="container">
-    <nz-table class="table-data" #basicTable [nzData]="listOfData" [nzScroll]="{ y: '240px' }">
+    <nz-table class="table-data" #basicTable [nzData]="listOfData" [nzScroll]="{ y: '1200px' }">
       <thead>
         <tr>
           <th nzWidth="150px">Nombre</th>
-          <th nzWidth="150px">Teléfono</th>
-          <th nzWidth="150px">NIT</th>
+          <th nzWidth="150px">Apellido</th>
+          <th nzWidth="150px">Edad</th>
+          <th nzWidth="150px">Email</th>
+          <th nzWidth="150px">Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let data of basicTable.data">
-          <td>{{ data.nombre }}</td>
-          <td>{{ data.tel }}</td>
-          <td>{{ data.nit }}</td>
+          <td>{{ data.firstname }}</td>
+          <td>{{ data.lastname }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.email }}</td>
+          <td>
+            <button nz-button nzType="primary" (click)="showmodaledit(data)"><i class="fas fa-edit"></i></button> &nbsp;
+            <button nz-button nzType="primary" nzDanger (click)="deletePaciente(data.id)"><i class="fas fa-trash-alt"></i></button>
+          </td>
         </tr>
       </tbody>
     </nz-table>
   </div>
+
+  <nz-modal
+    [(nzVisible)]="modalEdit"
+    nzTitle="Editar cliente"
+    (nzOnCancel)="handleCancel()"
+    nzWidth = 750px
+  >
+    <ng-container *nzModalContent>
+      <div class="formulario">
+        <form [formGroup]="editForm" (ngSubmit)="editClient()" nz-form>
+          <div class="contenedorForm">
+            <nz-form-item class="subContenedorForm">
+              <nz-form-label style="width: 120px;">Nombres</nz-form-label>
+              <nz-form-control>
+                <input style="display: none;" nz-input class="form-control" formControlName="id" name="id" id="id"/>
+                <input nz-input class="form-control" formControlName="firstname" name="firstname" id="firstname" placeholder="Nombres"/>
+                <!-- <div class="alerta-danger" *ngIf="firstname.invalid && (firstname.dirty || firstname.touched || inputError)">
+                  <div class="message-alert" *ngIf="firstname.errors.required">
+                    Este campo es requerido.
+                  </div>
+                </div> -->
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item class="subContenedorForm">
+              <nz-form-label style="width: 120px;">Apellidos</nz-form-label>
+              <nz-form-control>
+                <input nz-input class="form-control" formControlName="lastname" name="lastname" id="lastname" placeholder="Apellidos"/>
+                <!-- <div class="alerta-danger" *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched || inputError)">
+                  <div class="message-alert" *ngIf="apellidos.errors.required">
+                    Este campo es requerido.
+                  </div>
+                  <div class="message-alert" *ngIf="apellidos.errors.onlyText">
+                    Solo se permiten letras.
+                  </div>
+                </div> -->
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item class="subContenedorForm">
+              <nz-form-label style="width: 120px;">Edad</nz-form-label>
+              <nz-form-control>
+                <input maxlength="3" nz-input class="form-control" formControlName="age" name="age" id="age" placeholder="Edad"/>
+                <!-- <div class="alerta-danger" *ngIf="edad.invalid && (edad.dirty || edad.touched || inputError)">
+                  <div class="message-alert" *ngIf="edad.errors.required">
+                    Este campo es requerido.
+                  </div>
+                  <div class="message-alert" *ngIf="edad.errors.onlyNumber">
+                    Solo se permiten números.
+                  </div>
+                </div> -->
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item class="subContenedorForm">
+              <nz-form-label style="width: 120px;">Email</nz-form-label>
+              <nz-form-control>
+                <input nz-input class="form-control" formControlName="email" name="email" id="email" placeholder="Email"/>
+                <!-- <div class="alerta-danger" *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched || inputError)">
+                  <div class="message-alert" *ngIf="apellidos.errors.required">
+                    Este campo es requerido.
+                  </div>
+                  <div class="message-alert" *ngIf="apellidos.errors.onlyText">
+                    Solo se permiten letras.
+                  </div>
+                </div> -->
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item class="subContenedorForm">
+              <nz-form-label style="width: 120px;">Password</nz-form-label>
+              <nz-form-control>
+                <input nz-input type="password" class="form-control" formControlName="password" name="password" id="password" placeholder="Password"/>
+                <!-- <div class="alerta-danger" *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched || inputError)">
+                  <div class="message-alert" *ngIf="apellidos.errors.required">
+                    Este campo es requerido.
+                  </div>
+                  <div class="message-alert" *ngIf="apellidos.errors.onlyText">
+                    Solo se permiten letras.
+                  </div>
+                </div> -->
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+
+          <div class="btn-update">
+            <button nz-button nzType="primary">Guardar cambios &nbsp; <i class="fas fa-save"></i></button>
+          </div>
+        </form>
+      </div>
+    </ng-container>
+
+    <div *nzModalFooter>
+    </div>
+  </nz-modal>
 </div>

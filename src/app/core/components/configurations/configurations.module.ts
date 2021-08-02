@@ -1,3 +1,4 @@
+import { LoginComponent } from './../login/login.component';
 // modulos
 import { CommonModule } from '@angular/common';
 import { ConfigurationsRoutingModule } from './configurations-routing.module';
@@ -9,9 +10,16 @@ import { ClientesSettingModule } from './../clientes/clientes-setting/clientes-s
 // componentes
 import { MenuComponent } from './../menu/menu.component';
 
+// ng zorro
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+
 @NgModule({
   declarations: [
     MenuComponent,
+    LoginComponent
   ],
   imports: [
     ConfigurationsRoutingModule,
@@ -19,9 +27,14 @@ import { MenuComponent } from './../menu/menu.component';
     ClientesSettingModule,
     OrdenesSettingModule,
     ProductosSettingModule,
+    NzFormModule,
+    NzInputModule,
+    ReactiveFormsModule,
+    NzAlertModule
   ],
   exports: [
-    MenuComponent
+    MenuComponent,
+    LoginComponent
   ]
 })
 export class ConfigurationsModule { }
